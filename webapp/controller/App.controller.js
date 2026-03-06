@@ -1,9 +1,10 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast", //Libreria del modelo JSOn
-    "sap/ui/model/json/JSONModel"
+    "sap/m/MessageToast", //Libreria MessageToast
+    "sap/ui/model/json/JSONModel",//Libreria del modelo JSOn
+    "sap/ui/core/UIComponent" //Libreria UIComponet
 
-], function (Controller,MessageToast,JSONModel) {
+], function (Controller,MessageToast,JSONModel, UIComponent) {
     "use strict";
 
     return Controller.extend("testaroa.controller.App", {
@@ -17,10 +18,10 @@ sap.ui.define([
             };
             
             // Creamos el modelo y le metemos los datos
-            var oModel = new JSONModel(oData); //¿donde se crea esta modelo?
+            var oModel = new JSONModel(oData); //¿donde se crea esta modelo? Se crea en la memoria RAM del navegador de tu ordenador en ese exacto milisegundo.
             
             // Asignamos el modelo a nuestra vista para que pueda "leerlo"
-            this.getView().setModel(oModel); //oModel ¿donde?
+            this.getView().setModel(oModel); //oModel ¿donde? Esta línea es el pegamento."Toma, pantalla, pégate esta caja de datos en la frente"
         },
         
             onShowHello: function () {
