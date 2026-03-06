@@ -1,0 +1,21 @@
+<mvc:View
+   controllerName="testaroa.controller.HelloPanel"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true">
+            <Panel id="Panel1" class="sapUiResponsiveMargin" headerText="{i18n>panelHeaderText}"> <!-- añadimos el fichero properties--> <!--caja blanca que agrupa los elementos-->
+         <content> <!--contenedor items-->
+            <HBox id="HboxInput" width="100%" justifyContent="Center" class="sapUiSmallMarginBottom"> <!--Mover al centro-->
+            <!--Input 1-->
+            <Input  
+            id="inpNombre" 
+            value="{/destinatario/nombre}" 
+            description="{i18n>inputDescription}" 
+            width="400px"/> <!--Tamaño del input y fichero properties-->
+            </HBox>
+            <Text id="text" text="¡Hola!" class="sapUiSmallMarginTop sapThemeText miTextoDestacado"/> <!--Aplicar estilo css-->
+            <!--Botón 1-->
+            <Button id="btnHola" text="Dime Hola" press=".onShowHello" class="sapUiLargeMargin"/>
+            </content> <!--contenedor items-->
+            </Panel> <!--Cierre panel-->
+</mvc:View>
