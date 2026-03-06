@@ -3,12 +3,24 @@
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc">
    <App id="miApp">
-      <Page id="prueba" title="Prueba de Proyecto">
-         <content>
-            <Text id="text" text="¡Hola Mundo! Entendiendo la arquitectura Fiori." class="sapUiLargeMargin"/>
+      <Page id="prueba" title="{i18n>appTitle}"> <!-- añadimos el fichero properties-->
+         <content> <!-- contenedor panel-->
+         <Panel id="Panel1" class="sapUiMargin" headerText="{i18n>panelHeaderText}"> <!-- añadimos el fichero properties-->
+         <content> <!--contenedor items-->
+         <HBox id="HboxInput" width="100%" justifyContent="Center" class="sapUiSmallMarginBottom"> <!--Mover al centro-->
+         <!--Input 1-->
+            <Input  
+            id="inpNombre" 
+            value="{/destinatario/nombre}" 
+            description="{i18n>inputDescription}" 
+            width="400px"/> <!--Tamaño del input y fichero properties-->
+            </HBox>
+            <Text id="text" text="¡Hola!" class="sapUiLargeMargin"/>
             <!--Botón 1-->
             <Button id="btnHola" text="Dime Hola" press=".onShowHello" class="sapUiLargeMargin"/>
-         </content>
+            </content> <!--contenedor items-->
+      </Panel> <!--Cierre panel-->
+      </content>  <!--Cierre contenedor panel-->
       </Page>
    </App>
 </mvc:View>
