@@ -1,0 +1,17 @@
+<core:FragmentDefinition 
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core">
+   <Dialog 
+      id="helloDialog"
+      title="{i18n>openDialogButtonText}" 
+      icon="sap-icon://edit"> <!--Dialogo con icono de editar-->
+      <content>
+         <Text id="txtDialogo" text="{i18n>txtDialogo}" />
+      </content>
+      <beginButton>
+         <Button id="btonCierreDiag"
+            text="{i18n>okButtonText}"
+            press=".onCloseDialog"/> <!--Cerrar el dialogo-->
+      </beginButton>
+   </Dialog>
+</core:FragmentDefinition>

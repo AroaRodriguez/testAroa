@@ -2,10 +2,10 @@ sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/Device",
     "testaroa/model/models",
-    "sap/ui/model/json/JSONModel" // Añadimos la librería del JSONModel
+    "sap/ui/model/json/JSONModel",
+    "testaroa/controller/HelloDialog" // <-- ¡FALTABA ESTA QUINTA RUTA!
 ],
-//Esta función que me la expliquen más detalladamente --> entiendo que es para sustituir el init anterior, pero que beneficios finales tiene y si se usa. --> Paso 10 tutorial
-function (UIComponent, Device, models, JSONModel) { //La recibimos como parámetro (¡orden estricto!)
+function (UIComponent, Device, models, JSONModel, HelloDialog) { // <-- Ahora sí coincide con la 5ª posición
     "use strict";
 
     return UIComponent.extend("testaroa.Component", {
@@ -13,38 +13,30 @@ function (UIComponent, Device, models, JSONModel) { //La recibimos como parámet
             manifest: "json"
         },
 
-        /**
-         * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
-         * @public
-         * @override
-         */
         init: function () {
-            // Llama a la función init base del framework (¡obligatorio!)
+            // Llama a la función init base (obligatorio)
             UIComponent.prototype.init.apply(this, arguments);
 
-            // --- INICIO DE NUESTROS DATOS GLOBALES ---
-            // Creamos los datos
-            var oData = {
-                destinatario: {
-                    nombre: "" //dejamos vacío para que se escriba
-                }
-            };
-            
-            // Creamos el modelo
+            // --- MODELO JSON GLOBAL ---
+            var oData = { destinatario: { nombre: "" } };
             var oModel = new JSONModel(oData);
-            
-            // ¡ATENCIÓN! Aquí usamos this.setModel en lugar de this.getView().setModel
-            // Al hacerlo en 'this' (el Componente), el modelo es global para toda la App.
             this.setModel(oModel);
-            // --- FIN DE NUESTROS DATOS GLOBALES ---
 
+            // --- DIÁLOGO GLOBAL ---
+            // Ahora HelloDialog ya no es undefined, es el constructor real
+            this._helloDialog = new HelloDialog(this.getRootControl());
 
-            // Habilita el router (navegación entre pantallas)
             this.getRouter().initialize();
-
-            // Configura el modelo de dispositivos (para saber si es móvil o PC)
             this.setModel(models.createDeviceModel(), "device");
+        }, 
+
+        exit: function () {
+            this._helloDialog.destroy();
+            delete this._helloDialog;
+        },
+
+        openHelloDialog: function () {
+            this._helloDialog.open(); //
         }
     });
-}
-);
+});

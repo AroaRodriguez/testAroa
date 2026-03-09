@@ -3,7 +3,7 @@
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true">
-            <Panel id="Panel1" class="sapUiResponsiveMargin" headerText="{i18n>panelHeaderText}"> <!-- añadimos el fichero properties--> <!--caja blanca que agrupa los elementos-->
+         <Panel id="Panel1" class="sapUiResponsiveMargin" headerText="{i18n>panelHeaderText}"> <!-- añadimos el fichero properties--> <!--caja blanca que agrupa los elementos-->
          <content> <!--contenedor items-->
             <HBox id="HboxInput" width="100%" justifyContent="Center" class="sapUiSmallMarginBottom"> <!--Mover al centro-->
             <!--Input 1-->
@@ -16,6 +16,12 @@
             <Text id="text" text="¡Hola!" class="sapUiSmallMarginTop sapThemeText miTextoDestacado"/> <!--Aplicar estilo css-->
             <!--Botón 1-->
             <Button id="btnHola" text="Dime Hola" press=".onShowHello" class="sapUiLargeMargin"/>
+            <!--Botón 2 dialogos-->
+            <Button id="btnDialogo"
+               text="{i18n>openDialogButtonText}"
+               press=".onOpenDialog"
+               icon="sap-icon://hello-world"
+               class="sapUiMediumMarginBegin"/>
             </content> <!--contenedor items-->
             </Panel> <!--Cierre panel-->
 </mvc:View>
