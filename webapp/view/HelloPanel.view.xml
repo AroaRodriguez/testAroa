@@ -22,6 +22,19 @@
                press=".onOpenDialog"
                icon="sap-icon://hello-world"
                class="sapUiMediumMarginBegin"/>
+
+            <!--Listado Modelo JSON con datos-->
+            <List id="listadoModelo"
+            headerText="{i18n>invoiceListTitle}"
+            class="sapUiResponsiveMargin"
+            width="auto"
+            items="{invoice>/Invoices}"> <items>
+               <ObjectListItem id="Objeto"
+                  title="{invoice>ProductName}"
+                  number="{invoice>ExtendedPrice}"
+                  numberUnit="EUR" />
+            </items>
+            </List>
             </content> <!--contenedor items-->
             </Panel> <!--Cierre panel-->
 </mvc:View>
