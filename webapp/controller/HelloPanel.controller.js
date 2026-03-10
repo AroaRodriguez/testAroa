@@ -88,7 +88,7 @@ sap.ui.define([
     var oItem = oEvent.getSource();
     var oRouter = this.getOwnerComponent().getRouter();
     
-    // Obtenemos el path (ej: "/Invoices/0") y nos quedamos solo con el número
+    // Obtenemos el path y nos quedamos solo con el número
     var sPath = oItem.getBindingContext("invoice").getPath();
     var sIndex = sPath.split("/").pop(); // Esto coge el último trozo después de la barra
     

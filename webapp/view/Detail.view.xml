@@ -2,10 +2,12 @@
 	controllerName="testaroa.controller.Detail"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
+    <!--Pagina detalles-->
 	<Page id="paginaDetalle"
 		title="{i18n>detailPage}"
 		showNavButton="true"
-		navButtonPress=".onNavBack">
+		navButtonPress=".onNavBack"> <!--Boton para volver para atrás-->
+        <!--Objecto de la pagina hellopanel como cabecera-->
 		<ObjectHeader id="objectPress"
 			title="{invoice>ProductName}"
 			number="{
