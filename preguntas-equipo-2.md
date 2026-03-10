@@ -78,3 +78,4 @@ onInit: function () {
 
 <figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
+El backend de SAP habla ABAP (y entiende tablas de base de datos), mientras que tu aplicación Fiori habla JavaScript/JSON. OData se pone en medio y permite que ambos se entiendan usando el lenguaje de internet: el protocolo HTTP.
