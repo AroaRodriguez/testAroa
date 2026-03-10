@@ -28,3 +28,48 @@ Comando para ejecutar app:
 ```
 npm start
 ```
+
+Comando para que servidor local pueda hablar con el servidor de SAP (Northwind):
+
+```
+npm install ui5-middleware-simpleproxy --save-dev
+```
+
+Configurar ui5-yaml:&#x20;
+
+```
+- name: ui5-middleware-simpleproxy
+  afterMiddleware: compression
+  configuration:
+    baseUri: https://services.odata.org
+    httpHeaders:
+      AnyHeader: AnyValue
+    excludePatterns:
+      - /test-resources/**
+```
+
+Configurar dataSource:&#x20;
+
+```
+"dataSources": {
+  "invoiceRemote": {
+    "uri": "V2/Northwind/Northwind.svc/",
+    "type": "OData",
+    "settings": {
+      "odataVersion": "2.0"
+    }
+  }
+}
+```
+
+Cambiar el modelo invoice.json:&#x20;
+
+```
+"invoice": {
+  "dataSource": "invoiceRemote",
+  "type": "sap.ui.model.odata.v2.ODataModel",
+  "settings": {
+    "useBatch": false
+  }
+}
+```
