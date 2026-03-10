@@ -36,3 +36,40 @@ icon: comment-question
         this.getView().setModel(oViewModel, "view");
         }
 ```
+
+* Diferencia entre función onInit() y función event y función del dialogo que no es un evento: Programación de eventos he programado, con javaBeans,  se lo que es conceptualmente, la función onInit() no acabo de entenderla.
+
+```javascript
+onInit: function () {
+        // Creamos un modelo de vista para definir que la moneda es EUR
+        var oViewModel = new JSONModel({
+            currency: "EUR" //tipo de moneda, ventaja de modular para cuando se tenga que cambiar, solo se cambie esta linea. 
+         });
+        this.getView().setModel(oViewModel, "view");
+        },
+```
+
+```javascript
+        onFilterInvoices: function (oEvent) {
+            // 3. Obtener el texto que ha escrito el usuario
+            var sQuery = oEvent.getParameter("query");
+            var aFilter = [];
+            
+            if (sQuery) {
+                // Creamos un filtro que busque en 'ProductName'
+                aFilter.push(new Filter("ProductName", FilterOperator.Contains, sQuery));
+            }
+
+            // 4. Aplicar el filtro a la lista
+            var oList = this.byId("listadoModelo");
+            var oBinding = oList.getBinding("items");
+            oBinding.filter(aFilter);
+        }
+```
+
+```javascript
+        onOpenDialog: function () {
+        // Le pedimos al Componente que abra el diálogo por nosotros
+        this.getOwnerComponent().openHelloDialog();
+        },
+```
