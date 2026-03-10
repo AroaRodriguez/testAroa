@@ -1,0 +1,21 @@
+<mvc:View
+	controllerName="testaroa.controller.Detail"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page id="paginaDetalle"
+		title="{i18n>detailPage}"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		<ObjectHeader id="objectPress"
+			title="{invoice>ProductName}"
+			number="{
+				parts: [{path: 'invoice>ExtendedPrice'}, 'view>/currency'],
+				type: 'sap.ui.model.type.Currency',
+				formatOptions: {
+					showMeasure: false
+				}
+			}"
+			numberUnit="{view>/currency}">
+		</ObjectHeader>
+	</Page>
+</mvc:View>

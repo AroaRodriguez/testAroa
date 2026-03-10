@@ -2,16 +2,8 @@
    controllerName="testaroa.controller.App"
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc"
-   displayBlock="true"> 
-
-   <Shell id="shell">
-      <App id="miApp">
-         <Page id="pagePrueba" title="{i18n>appTitle}"> <!-- añadimos el fichero properties--><!--Prueba proyecto, barra superior-->   
-            <content>
-               <mvc:XMLView id="Panel" viewName="testaroa.view.HelloPanel"/> <!--Buenas prácticas modular la primera pagina APP, no generar el codigo aqui-->
-               </content>
-         </Page>
-      </App>
+   displayBlock="true">
+   <Shell id="_IDGenShell">
+      <App id="app"/>
    </Shell>
 </mvc:View>
-

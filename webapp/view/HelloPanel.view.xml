@@ -47,6 +47,8 @@
             <!--Único de SAP Fiori, esta pensado para datos complejos de negociio, permite separar visual ente el nombre del objeto de su valor númerico y su unidad. -->
                <ObjectListItem id="Objeto"
                   title="{invoice>ProductName}"
+                  type = "Navigation"
+                  press=".onPress"
                   number="{
                      parts: [
                         {path: 'invoice>ExtendedPrice'},

@@ -82,7 +82,20 @@ sap.ui.define([
             var oList = this.byId("listadoModelo");
             var oBinding = oList.getBinding("items");
             oBinding.filter(aFilter);
-        }
+        }, 
+
+    onPress: function (oEvent) {
+    var oItem = oEvent.getSource();
+    var oRouter = this.getOwnerComponent().getRouter();
+    
+    // Obtenemos el path (ej: "/Invoices/0") y nos quedamos solo con el número
+    var sPath = oItem.getBindingContext("invoice").getPath();
+    var sIndex = sPath.split("/").pop(); // Esto coge el último trozo después de la barra
+    
+    oRouter.navTo("detail", {
+        invoicePath: window.encodeURIComponent(sIndex)
+    });
+}
         
         
         //     //El método onInit se ejecuta al arrancar la app.
