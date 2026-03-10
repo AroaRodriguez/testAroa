@@ -74,7 +74,7 @@ onInit: function () {
         },
 ```
 
-* El punto 25 y 26, no he conseguido conectarlo con OData: (Me ha pedido cambiar muchos ficheros manuales, y al cambiarlos, como el manifest, se cerraba la app constantemente).
+* El punto 25 y 26, no he conseguido conectarlo con OData: (Me ha pedido cambiar muchos ficheros manuales, y al cambiarlos, como el manifest, se cerraba la app constantemente). Me salía que había muchos ficheros que estaban bloqueando, por lo que alguno que había hecho anteriormente me bloqueaba. --> Hacerlo mañana con vosotros.&#x20;
 
 <figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
