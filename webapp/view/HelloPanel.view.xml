@@ -44,7 +44,7 @@
                 search=".onFilterInvoices"/> </Toolbar>
             </headerToolbar>
             <items>
-            <!--Único de SAP Fiori, esta pensado para datos complejos de negociio, permite separar visual ente el nombre del objeto de su valor númerico y su unidad. -->
+            <!--Único de SAP Fiori, esta pensado para datos complejos de negocio, permite separar visual ente el nombre del objeto de su valor númerico y su unidad. -->
                <ObjectListItem id="Objeto"
                   title="{invoice>ProductName}"
                   type = "Navigation"
