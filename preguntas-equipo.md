@@ -1,5 +1,5 @@
 ---
-description: 'Preguntas sobre el código:'
+description: 'Preguntas sobre el código: --> Resueltas.'
 icon: comment-question
 ---
 
