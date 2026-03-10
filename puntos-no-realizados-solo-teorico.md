@@ -35,10 +35,24 @@ icon: book-open
 ¿Qué es? Es el kit de "detective" para encontrar errores. En SAP Fiori, a veces la app no carga o un campo sale vacío. En lugar de adivinar, usamos herramientas profesionales.
 
 * El objetivo: Ver las "tripas" de la aplicación mientras está corriendo.
-* Las herramientas clave:
-  1. Consola de Chrome (F12): Para ver errores de sintaxis y peticiones de red (Network).
-  2. SAPUI5 Diagnostics (Ctrl+Alt+Shift+S): Es un menú secreto de SAP que se abre en tu navegador. Te permite cambiar el tema visual, ver la versión exacta de UI5 y ver el árbol de controles.
-  3. SAPUI5 Inspector: Una extensión de Chrome que te permite pinchar en un botón de la pantalla y ver directamente su código, sus propiedades y sus modelos.
+*   Las herramientas clave:
+
+    1. Consola de Chrome (F12): Para ver errores de sintaxis y peticiones de red (Network).
+    2. SAPUI5 Diagnostics (Ctrl+Alt+Shift+S): Es un menú secreto de SAP que se abre en tu navegador. Te permite cambiar el tema visual, ver la versión exacta de UI5 y ver el árbol de controles.
+    3. SAPUI5 Inspector: Una extensión de Chrome que te permite pinchar en un botón de la pantalla y ver directamente su código, sus propiedades y sus modelos.
+
+
+* En la web
+
+```
+Ctrl Shift Alt / Option S
+```
+
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+*   **Note**
+
+    If you use the Google Chrome browser, you can install the UI5 Inspector plugin. With this plugin, you can easily debug your SAPUI5- or OpenUI5-based apps. For more information, see [UI5 Inspector](https://ui5.sap.com/topic/b24e72443eb34d0fb7bf6940f2d697eb).
 
 | **Paso** | **Nombre** | **¿Qué prueba?**               | **¿Cuándo se usa?**                    |
 | -------- | ---------- | ------------------------------ | -------------------------------------- |
