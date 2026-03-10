@@ -1,9 +1,9 @@
 ---
-description: 'Puntos 27, 28 y 29:'
+description: 'Puntos no realizados, únicamente teórico y revisión 27, 28 y 29:'
 icon: book-open
 ---
 
-# Puntos no realizados, solo teorico
+# Puntos 27,28 y 29
 
 ### Step 27: Unit Testing (QUnit)
 

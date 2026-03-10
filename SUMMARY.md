@@ -4,4 +4,4 @@
 * [Comandos Terminal](comandos-terminal.md)
 * [Preguntas Equipo](preguntas-equipo.md)
 * [Preguntas Equipo 2](preguntas-equipo-2.md)
-* [Puntos no realizados, solo teorico](puntos-no-realizados-solo-teorico.md)
+* [Puntos 27,28 y 29](puntos-27-28-y-29.md)
