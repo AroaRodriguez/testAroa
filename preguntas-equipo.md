@@ -106,4 +106,3 @@ function (UIComponent, Device, models, JSONModel) { //La recibimos como parámet
 );
 ```
 
-xx
