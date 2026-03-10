@@ -51,6 +51,10 @@
         "settings": {
           "bundleName": "testaroa.i18n.i18n"
         }
+      }, 
+      "invoice": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "Invoices.json"
       }
     },
     "resources": {
@@ -60,39 +64,43 @@
         }
       ]
     },
-    "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "transition": "slide",
-        "type": "View",
-        "viewType": "XML",
-        "path": "testaroa.view",
-        "async": true,
-        "viewPath": "testaroa.view.App"
-      },
-      "routes": [
-        {
-          "name": "RouteMain",
-          "pattern": ":?query:",
-          "target": [
-            "TargetMain"
-          ]
-        }
-      ],
-      "targets": {
-        "TargetMain": {
-          "id": "Main",
-          "name": "Main"
-        }
+"routing": {
+         "config": {
+            "routerClass": "sap.m.routing.Router",
+            "viewType": "XML",
+            "viewPath": "testaroa.view",
+            "controlId": "app",
+            "controlAggregation": "pages",
+            "async": true
+         },
+         "routes": [
+            {
+               "pattern": "",
+               "name": "overview",
+               "target": "overview"
+            },
+            {
+               "pattern": "Invoices/{invoicePath}",
+               "name": "detail",
+               "target": "detail"
+            }
+         ],
+         "targets": {
+            "overview": {
+               "viewId": "Overview",
+               "viewName": "Overview"
+            },
+            "detail": {
+               "viewId": "detail",
+               "viewName": "Detail"
+            }
+         }
+      }, 
+      "rootView": {
+         "viewName": "testaroa.view.App",
+         "type": "XML",
+         "id": "app",
+         "async": true
       }
-    },
-    "rootView": {
-      "viewName": "testaroa.view.App",
-      "type": "XML",
-      "id": "app",
-      "async": true
-    }
-  }
+   }
 }

@@ -1,1 +1,8 @@
-/* Enter your custom styles here */
+/* Usamos una clase personalizada. 
+  En Fiori evitamos poner colores fijos (como 'color: red'), 
+  así que solo cambiaremos el grosor y el comportamiento.
+*/
+.miTextoDestacado {
+    font-weight: bold;
+    display: inline-block;
+}

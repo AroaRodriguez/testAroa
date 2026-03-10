@@ -1,0 +1,18 @@
+<mvc:View
+   controllerName="testaroa.controller.App"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <Page id="paginaOverView" title="{i18n>appTitle}">
+      <headerContent>
+      <!--Creación de un botón en la parte superior-->
+         <Button
+            id="helloDialogButton"
+            icon="sap-icon://hello-world"
+            press=".onOpenDialog"/>
+      </headerContent>
+      <!--mostramos la vista helloPanel-->
+      <content>
+         <mvc:XMLView id="vista" viewName="testaroa.view.HelloPanel"/>
+      </content>
+   </Page>
+</mvc:View>

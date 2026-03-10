@@ -1,0 +1,68 @@
+<mvc:View
+   controllerName="testaroa.controller.HelloPanel"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true">
+         <Panel id="Panel1" class="sapUiResponsiveMargin" headerText="{i18n>panelHeaderText}"> <!-- añadimos el fichero properties--> <!--caja blanca que agrupa los elementos-->
+         <content> <!--contenedor items-->
+            <HBox id="HboxInput" width="100%" justifyContent="Center" class="sapUiSmallMarginBottom"> <!--Mover al centro-->
+            <!--Input 1-->
+            <Input  
+            id="inpNombre" 
+            value="{/destinatario/nombre}" 
+            description="{i18n>inputDescription}" 
+            width="400px"/> <!--Tamaño del input y fichero properties-->
+            </HBox>
+            <Text id="text" text="¡Hola!" class="sapUiSmallMarginTop sapThemeText miTextoDestacado"/> <!--Aplicar estilo css-->
+            <!--Botón 1-->
+            <Button id="btnHola" text="Dime Hola" press=".onShowHello" class="sapUiLargeMargin"/>
+            <!--Botón 2 dialogos-->
+            <Button id="btnDialogo"
+               text="{i18n>openDialogButtonText}"
+               press=".onOpenDialog"
+               icon="sap-icon://hello-world"
+               class="sapUiMediumMarginBegin"/>
+
+            <!--Listado Modelo JSON con datos-->
+            <List id="listadoModelo"
+            headerText="{i18n>invoiceListTitle}"
+            class="sapUiResponsiveMargin"
+            width="auto"
+            items="{path: 'invoice>/Invoices',
+                  sorter: {
+                  path: 'ExtendedPrice',
+                  descending: true,
+                  group: '.getGroupHeader'
+                  }    
+            }">
+            <headerToolbar>
+            <Toolbar id="Buscador">
+            <Title id="TituloBuscador" text="{i18n>tablaTitulo}"/>
+            <ToolbarSpacer id="espaciador"/>
+            <SearchField id="contenedorFiltrado" 
+                width="50%" 
+                search=".onFilterInvoices"/> </Toolbar>
+            </headerToolbar>
+            <items>
+            <!--Único de SAP Fiori, esta pensado para datos complejos de negocio, permite separar visual ente el nombre del objeto de su valor númerico y su unidad. -->
+               <ObjectListItem id="Objeto"
+                  title="{invoice>ProductName}"
+                  type = "Navigation"
+                  press=".onPress"
+                  number="{
+                     parts: [
+                        {path: 'invoice>ExtendedPrice'},
+                        'view>/currency'
+                           ],
+                        type: 'sap.ui.model.type.Currency',
+                        formatOptions: {
+                        showMeasure: false
+                        }
+                        }"
+                        numberUnit="{view>/currency}" 
+                        numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }" /> <!--mostrar un error cuando sea mayor que 50-->
+            </items>
+            </List>
+            </content> <!--contenedor items-->
+            </Panel> <!--Cierre panel-->
+</mvc:View>

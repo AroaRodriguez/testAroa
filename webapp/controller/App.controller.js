@@ -1,15 +1,13 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast" //Añadimos ruta modulo ¿libreria?
+    "sap/ui/core/mvc/Controller"
 ], function (Controller) {
     "use strict";
 
     return Controller.extend("testaroa.controller.App", {
-        
-            onShowHello: function () {
-            //Sustituimos el 'alert' por el método '.show()' del MessageToast
-            MessageToast.show("¡Hola Mundo! Ahora soy un mensaje profesional.");
+        // Esta es la función que busca el botón del "mundo"
+        onOpenDialog: function () {
+            // Llamamos a la función que acabas de definir en el Component.js
+            this.getOwnerComponent().openHelloDialog();
         }
-
     });
 });

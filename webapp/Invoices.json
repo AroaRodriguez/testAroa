@@ -1,0 +1,25 @@
+{
+  "Invoices": [
+    {
+      "ProductName": "Piña",
+      "Quantity": 21,
+      "ExtendedPrice": 87.20,
+      "ShipperName": "Express Delivery",
+      "Status": "A"
+    },
+    {
+      "ProductName": "Leche",
+      "Quantity": 4,
+      "ExtendedPrice": 9.99,
+      "ShipperName": "Local Food",
+      "Status": "B"
+    },
+    {
+      "ProductName": "Melocotones",
+      "Quantity": 17,
+      "ExtendedPrice": 42.23,
+      "ShipperName": "Express Delivery",
+      "Status": "C"
+    }
+  ]
+}
