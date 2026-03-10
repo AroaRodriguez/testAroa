@@ -1,7 +1,10 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast"
-], function (Controller, MessageToast) {
+    "sap/m/MessageToast",
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/model/Filter",         
+    "sap/ui/model/FilterOperator"  
+], function (Controller, MessageToast,JSONModel, Filter, FilterOperator) {
     "use strict";
 
 
@@ -38,7 +41,49 @@ sap.ui.define([
         this.getOwnerComponent().openHelloDialog();
         },
 
+        onInit: function () {
+        // Creamos un modelo de vista para definir que la moneda es EUR
+        var oViewModel = new JSONModel({
+            currency: "EUR" //tipo de moneda, ventaja de modular para cuando se tenga que cambiar, solo se cambie esta linea. 
+         });
+        this.getView().setModel(oViewModel, "view");
+        },
 
+        // FUNCIÓN DE AGRUPACIÓN MODULARIZADA
+        getGroupHeader: function (oContext) {
+        // 1. Leemos el precio del contexto actual
+        var fPrice = oContext.getProperty("ExtendedPrice");
+        
+        // 2. Definimos la lógica de "Bien" o "Mal"
+        if (fPrice > 50) {
+            return {
+                key: "CRITICAL",
+                text: "ESTADO: MAL (Facturas Críticas > 50€)"
+            };
+        } else {
+            return {
+                key: "OK",
+                text: "ESTADO: BIEN (Facturas Correctas <= 50€)"
+            };
+        }
+    },
+
+        onFilterInvoices: function (oEvent) {
+            // 3. Obtener el texto que ha escrito el usuario
+            var sQuery = oEvent.getParameter("query");
+            var aFilter = [];
+            
+            if (sQuery) {
+                // Creamos un filtro que busque en 'ProductName'
+                aFilter.push(new Filter("ProductName", FilterOperator.Contains, sQuery));
+            }
+
+            // 4. Aplicar el filtro a la lista
+            var oList = this.byId("listadoModelo");
+            var oBinding = oList.getBinding("items");
+            oBinding.filter(aFilter);
+        }
+        
         
         //     //El método onInit se ejecuta al arrancar la app.
         //     onInit: function () {
@@ -56,10 +101,6 @@ sap.ui.define([
         //     this.getView().setModel(oModel); //oModel ¿donde? Esta línea es el pegamento.
         // },
         
-    
-
-
-
-
     }); //Cierre return
+
     }); //Cierre clase controller

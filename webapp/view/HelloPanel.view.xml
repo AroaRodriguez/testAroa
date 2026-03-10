@@ -28,11 +28,37 @@
             headerText="{i18n>invoiceListTitle}"
             class="sapUiResponsiveMargin"
             width="auto"
-            items="{invoice>/Invoices}"> <items>
+            items="{path: 'invoice>/Invoices',
+                  sorter: {
+                  path: 'ExtendedPrice',
+                  descending: true,
+                  group: '.getGroupHeader'
+                  }    
+            }">
+            <headerToolbar>
+            <Toolbar id="Buscador">
+            <Title id="TituloBuscador" text="{i18n>tablaTitulo}"/>
+            <ToolbarSpacer id="espaciador"/>
+            <SearchField id="contenedorFiltrado" 
+                width="50%" 
+                search=".onFilterInvoices"/> </Toolbar>
+            </headerToolbar>
+            <items>
+            <!--Único de SAP Fiori, esta pensado para datos complejos de negociio, permite separar visual ente el nombre del objeto de su valor númerico y su unidad. -->
                <ObjectListItem id="Objeto"
                   title="{invoice>ProductName}"
-                  number="{invoice>ExtendedPrice}"
-                  numberUnit="EUR" />
+                  number="{
+                     parts: [
+                        {path: 'invoice>ExtendedPrice'},
+                        'view>/currency'
+                           ],
+                        type: 'sap.ui.model.type.Currency',
+                        formatOptions: {
+                        showMeasure: false
+                        }
+                        }"
+                        numberUnit="{view>/currency}" 
+                        numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }" /> <!--mostrar un error cuando sea mayor que 50-->
             </items>
             </List>
             </content> <!--contenedor items-->
