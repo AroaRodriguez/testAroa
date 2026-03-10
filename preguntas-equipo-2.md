@@ -73,3 +73,8 @@ onInit: function () {
         this.getOwnerComponent().openHelloDialog();
         },
 ```
+
+El punto 25 y 26, no he conseguido conectarlo con OData:&#x20;
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
