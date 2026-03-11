@@ -9,6 +9,15 @@
     },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
+    "dataSources": {
+			"invoiceRemote": {
+				"uri": "/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		},
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
@@ -52,10 +61,11 @@
           "bundleName": "testaroa.i18n.i18n"
         }
       }, 
-      "invoice": {
-        "type": "sap.ui.model.json.JSONModel",
-        "uri": "Invoices.json"
-      }
+			"invoice": {
+				"dataSource": "invoiceRemote",
+        "preload": true,
+        "settings": {}
+			}
     },
     "resources": {
       "css": [

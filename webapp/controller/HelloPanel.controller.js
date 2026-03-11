@@ -42,6 +42,7 @@ sap.ui.define([
         },
 
         onInit: function () {
+            debugger
         // Creamos un modelo de vista para definir que la moneda es EUR
         var oViewModel = new JSONModel({
             currency: "EUR" //tipo de moneda, ventaja de modular para cuando se tenga que cambiar, solo se cambie esta linea. 
