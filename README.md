@@ -5,7 +5,7 @@ icon: folder
 
 # Carpetas Proyecto SAPUI5
 
-AppController.js : Lógica del programa.&#x20;
+## AppController.js : Lógica del programa.&#x20;
 
 ```javascript
 sap.ui.define([
@@ -20,7 +20,7 @@ sap.ui.define([
 });
 ```
 
-AppView.xml: Diseño de la página.
+## AppView.xml: Diseño de la página.
 
 ```xml
 <mvc:View controllerName="testaroa.controller.App"
@@ -32,7 +32,7 @@ AppView.xml: Diseño de la página.
 </mvc:View>
 ```
 
-manifest.json: Fichero dónde se guardan todas las variables y que también se utiliza para modular nuestra App.
+## manifest.json: Fichero dónde se guardan todas las variables y que también se utiliza para modular nuestra App.
 
 ```json
    "title": "{{Hola este es mi program}}",
@@ -45,5 +45,32 @@ manifest.json: Fichero dónde se guardan todas las variables y que también se u
     }
 ```
 
-&#x20;
+## Estructuras de carpetas:&#x20;
 
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+* Carpeta controller: Controlador de lógica de javascript.&#x20;
+* Carpeta css: Contiene todas las hojas de estilos.&#x20;
+* Carpeta fragment: Contiene todos los fragmentos, técnica de conectar un evento de control dentro de un fragmento (como press de un bóton) con una función que reside en el controlador de la vista.&#x20;
+
+Vista: HelloDialog.fragment.xml
+
+```
+<Button
+   text="{i18n>okButtonText}"
+   press=".onCloseDialog"/>
+```
+
+Controlador: Main.controller.js
+
+```
+onCloseDialog : function () {
+   // El controlador busca el fragmento por su ID y lo cierra
+   this.byId("helloDialog").close();
+}
+```
+
+* Carpeta i18n: Contiene todas las "propiedades" de las vistas. Se utiliza para modular todas las declaraciones = nombres asignados de botones, listas, etc... Para después poder modificar el idioma.&#x20;
+* Carpeta model: Contiene todos los modelos JSON (ficheros).
+* Carpeta util: Contiene todas las funciones reutilizables como parsear un string que se recoge por el usuario a un int. (se llaman y se reutilizan en todos los controladores).
+* Carpeta view: Contiene todas las vistas, ficheros xml.&#x20;
