@@ -26,7 +26,7 @@ Comando descargar las librerías desde los repositorios de OpenUI5:
 Comando para ejecutar app:
 
 ```
-npm start
+npm run start
 ```
 
 Comando para que servidor local pueda hablar con el servidor de SAP (Northwind):
