@@ -32,7 +32,7 @@ sap.ui.define([
 </mvc:View>
 ```
 
-## manifest.json: Fichero dónde se guardan todas las variables y que también se utiliza para modular nuestra App.
+## manifest.json: Fichero donde se especifican las propiedades de configuración del proyecto, enrutamiento, identificadores de la aplicación, modelos y fuente de datos.
 
 ```json
    "title": "{{Hola este es mi program}}",
@@ -71,6 +71,6 @@ onCloseDialog : function () {
 ```
 
 * Carpeta i18n: Contiene todas las "propiedades" de las vistas. Se utiliza para modular todas las declaraciones = nombres asignados de botones, listas, etc... Para después poder modificar el idioma.&#x20;
-* Carpeta model: Contiene todos los modelos JSON (ficheros).
+* Carpeta model: Contiene todos los modelos de datos (JSON y javascript).
 * Carpeta util: Contiene todas las funciones reutilizables como parsear un string que se recoge por el usuario a un int. (se llaman y se reutilizan en todos los controladores).
 * Carpeta view: Contiene todas las vistas, ficheros xml.&#x20;
