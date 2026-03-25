@@ -1,3 +1,7 @@
+---
+icon: display-code
+---
+
 # Práctica filtrado modelJSON
 
 App:
