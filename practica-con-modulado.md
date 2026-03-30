@@ -657,3 +657,16 @@ SucessUpdate = Producto actualizado
 }
 ```
 
+Resultado:&#x20;
+
+<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
