@@ -73,3 +73,29 @@ Cambiar el modelo invoice.json:&#x20;
   }
 }
 ```
+
+Megear al MAIN desde una rama:
+
+1. Movernos a la rama main:
+
+```
+git checkout main
+```
+
+2. Actualizar la rama main:
+
+```
+git pull origin main
+```
+
+3. Mergear con la rama terminada:
+
+```
+git merge nombre-de-tu-rama
+```
+
+4. Subir el resultado al GitHub:
+
+```
+git push origin main
+```
