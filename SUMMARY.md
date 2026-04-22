@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Carpetas Proyecto SAPUI5](README.md)
+* [Funcionalidad Sumatorio](funcionalidad-sumatorio.md)
 * [Comandos Terminal](comandos-terminal.md)
 * [Puntos Formación no practicados](puntos-formacion-no-practicados.md)
 * [Preguntas Equipo](preguntas-equipo.md)
