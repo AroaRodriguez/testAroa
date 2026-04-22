@@ -67,5 +67,3 @@ Controlador sumatorio:&#x20;
     }
 });
 ```
-
-});
