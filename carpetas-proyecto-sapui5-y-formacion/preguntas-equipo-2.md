@@ -76,6 +76,6 @@ onInit: function () {
 
 * El punto 25 y 26, no he conseguido conectarlo con OData: (Me ha pedido cambiar muchos ficheros manuales, y al cambiarlos, como el manifest, se cerraba la app constantemente). Me salía que había muchos ficheros que estaban bloqueando, por lo que alguno que había hecho anteriormente me bloqueaba. --> Hacerlo mañana con vosotros.&#x20;
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 El backend de SAP habla ABAP (y entiende tablas de base de datos), mientras que tu aplicación Fiori habla JavaScript/JSON. OData se pone en medio y permite que ambos se entiendan usando el lenguaje de internet: el protocolo HTTP.

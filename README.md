@@ -1,76 +1,112 @@
 ---
-description: Distribución de las carpetas del proyecto y tipos de fichero según su uso.
-icon: folder
+icon: display-code
 ---
 
-# Carpetas Proyecto SAPUI5
+# Crear instancia
 
-## AppController.js : Lógica del programa.&#x20;
+Crear proyecto con documento app.js.
 
-```javascript
-sap.ui.define([
-  "sap/ui/core/mvc/Controller"
-], (BaseController) => {
-  "use strict";
+Paso 1: El package.json (Fijando versiones estables)
 
-  return BaseController.extend("testaroa.controller.App", {
-      onInit() {
-      }
-  });
-});
-```
+Vamos a volver a traer passport a la vida y vamos a "clavar" la versión de @sap/xssec en la rama 3.x, que es la que soporta JWTStrategy de forma nativa e impecable.
 
-## AppView.xml: Diseño de la página.
-
-```xml
-<mvc:View controllerName="testaroa.controller.App"
-    displayBlock="true"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <App id="app">
-    </App>
-</mvc:View>
-```
-
-## manifest.json: Fichero donde se especifican las propiedades de configuración del proyecto, enrutamiento, identificadores de la aplicación, modelos y fuente de datos.
+Sustituye todo tu package.json por este:
 
 ```json
-   "title": "{{Hola este es mi program}}",
-    "description": "{{¿Qué tal?}}",
-    "resources": "resources.json",
-    "sourceTemplate": {
-      "id": "@sap/generator-fiori:basic",
-      "version": "1.20.4",
-      "toolsId": "aac2b913-c80f-42f3-a039-a6778006d841"
-    }
-```
-
-## Estructuras de carpetas:&#x20;
-
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
-
-* Carpeta controller: Controlador de lógica de javascript.&#x20;
-* Carpeta css: Contiene todas las hojas de estilos.&#x20;
-* Carpeta fragment: Contiene todos los fragmentos, técnica de conectar un evento de control dentro de un fragmento (como press de un bóton) con una función que reside en el controlador de la vista.&#x20;
-
-Vista: HelloDialog.fragment.xml
-
-```
-<Button
-   text="{i18n>okButtonText}"
-   press=".onCloseDialog"/>
-```
-
-Controlador: Main.controller.js
-
-```
-onCloseDialog : function () {
-   // El controlador busca el fragmento por su ID y lo cierra
-   this.byId("helloDialog").close();
+{
+  "name": "user-info",
+  "version": "1.0.0",
+  "description": "BTP User Information Service",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "@sap/xsenv": "^4.0.0",
+    "@sap/xssec": "^3.6.0",
+    "express": "^4.19.0",
+    "passport": "^0.6.0"
+  }
 }
 ```
 
-* Carpeta i18n: Contiene todas las "propiedades" de las vistas. Se utiliza para modular todas las declaraciones = nombres asignados de botones, listas, etc... Para después poder modificar el idioma.&#x20;
-* Carpeta model: Contiene todos los modelos de datos (JSON y javascript).
-* Carpeta util: Contiene todas las funciones reutilizables como parsear un string que se recoge por el usuario a un int. (se llaman y se reutilizan en todos los controladores).
-* Carpeta view: Contiene todas las vistas, ficheros xml.&#x20;
+Paso 2: El app.js
+
+```
+const express = require('express');
+const passport = require('passport');
+const xssec = require('@sap/xssec'); 
+const xsenv = require('@sap/xsenv'); 
+//Ojo, no utilizar la librería JWTStrategy --> USAR xssec
+
+const app = express();
+
+
+// 1. Cargamos el entorno
+xsenv.loadEnv();
+
+
+// 2. Buscamos el servicio de seguridad XSUAA
+let uaaCredentials;
+try {
+    const services = xsenv.getServices({ uaa: { tag: 'xsuaa' } });
+    uaaCredentials = services.uaa;
+    console.log("✅ Servicio XSUAA enlazado correctamente.");
+} catch (error) {
+    console.error("🚨 Error crítico: No se ha encontrado el servicio XSUAA.", error.message);
+    uaaCredentials = {}; 
+}
+
+
+// 3. Inicializamos Passport pasándole las credenciales a JWTStrategy
+passport.use(new xssec.JWTStrategy(uaaCredentials));
+
+
+app.use(passport.initialize());
+app.use(passport.authenticate('JWT', { session: false }));
+
+
+// 4. Tu endpoint
+app.get('/jwtdecode', function (req, res) {
+    const authInfo = req.authInfo; 
+    
+    // Protección adicional por si falla el token
+    if (!authInfo) {
+        return res.status(401).json({ error: "No autorizado" });
+    }
+    
+    res.json({
+        logonName: authInfo.getLogonName(),
+        email: authInfo.getEmail(),
+        givenName: authInfo.getGivenName(),
+        familyName: authInfo.getFamilyName(),
+        roles: authInfo.getScopes() 
+    });
+});
+
+
+const port = process.env.PORT || 3000;
+app.listen(port, function () {
+    console.log(`🚀 User-info service started on port ${port}`);
+});
+```
+
+Paso 3: Despliegue
+
+Comandos:
+
+Instalar.
+
+```
+user: cf-user-info-main_security $ npm i
+```
+
+Desplegar:
+
+```
+user: cf-user-info-main_security $ mbt build 
+```
+
+```
+user: cf-user-info-main_security $ cf push
+```

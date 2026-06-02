@@ -3,7 +3,7 @@ description: 'Puntos no realizados, únicamente teórico y revisión 27, 28,29,3
 icon: book-open
 ---
 
-# Puntos 27-28-29-33-34-35-36-37
+# Puntos Formación no practicados
 
 ### Step 27: Unit Testing (QUnit)
 
@@ -48,7 +48,7 @@ icon: book-open
 Ctrl Shift Alt / Option S
 ```
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 *   **Note**
 
