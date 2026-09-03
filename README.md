@@ -13,6 +13,4 @@ icon: link-horizontal
 
 &#x20;            b. SAP Business Application Studio toolkit
 
-4. Login con la URL del BAS (hasta SAP solo):
-
-<figure><img src=".gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+4. Login con la URL del BAS (hasta SAP solo): [https://marketplace.visualstudio.com/items?itemName=SAPOSS.app-studio-toolkit](https://marketplace.visualstudio.com/items?itemName=SAPOSS.app-studio-toolkit)
