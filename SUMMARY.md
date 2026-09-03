@@ -1,6 +1,7 @@
 # Table of contents
 
-* [Crear instancia](README.md)
+* [Documentación Conectar VSC con BAS + Chat GPT](README.md)
+* [Crear instancia](<README (1).md>)
 * [Crear Destino](crear-destino.md)
 * [Carpetas Proyecto SAPUI5 y Formación](carpetas-proyecto-sapui5-y-formacion/README.md)
   * [Funcionalidad Sumatorio](carpetas-proyecto-sapui5-y-formacion/funcionalidad-sumatorio.md)
