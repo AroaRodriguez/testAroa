@@ -15,6 +15,5 @@ icon: link-horizontal
 
 4. Login con la URL del BAS (hasta SAP solo):
 
-<figure><img src=".gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+![](<.gitbook/assets/image (20).png>)
 
-<figure><img src=".gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
